@@ -93,7 +93,7 @@ function getQuote() {
   const index = Math.floor(Math.random() * quotes.length);
   const quote = quotes[index].text;
   const authorName = quotes[index].author;
-  console.log(author);
+  
   text.innerText = quote;
   author.innerText = authorName == null ? "Anonymous" : authorName;
   tweetButton.href = "https://twitter.com/intent/tweet?text=" + quote + " ~ " + authorName;
