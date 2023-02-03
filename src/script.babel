@@ -87,7 +87,6 @@ const quotes = [
 
 const text=document.getElementById("text");
 const author=document.getElementById("author");
-const tweetButton=document.getElementById("tweet-quote");
 
 function getQuote(){
   const index = Math.floor(Math.random() * quotes.length);
@@ -96,8 +95,12 @@ function getQuote(){
   console.log(author);
   text.innerText = quote;
   author.innerText = authorName == null ? "Anonymous" : authorName;
-  tweetButton.href="https://twitter.com/intent/tweet?text="+quote+" ~ "+authorName;
-
+  
+ $('#tweet-quote').attr(
+    'href',
+    'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' +
+      encodeURIComponent('"' + quote + '" ' + authorName)
+  );
 }
 
 getQuote();
